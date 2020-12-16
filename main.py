@@ -27,6 +27,8 @@ def stitch(index):
         for ts_file in ts_filenames:
             with open(ts_file, "rb") as mergefile:
                 shutil.copyfileobj(mergefile, merged)
+    mydelete(index)
+    convert()
 
 
 def mydelete(index):
@@ -42,5 +44,4 @@ def convert():
     outfile = "merged.mp4"
     subprocess.run(['ffmpeg', '-i', infile, outfile])
 
-stitch(499)
-convert()
+download()
